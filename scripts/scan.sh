@@ -2,6 +2,7 @@
 # shellcheck disable=SC1091,SC2129
 
 VSCODE_TAG="$1"
+VSCODE_COMMIT=""
 
 if [[ "${OSTYPE}" == "msys"* || "${OSTYPE}" == "cygwin"* ]]; then
   echo "Windows is not supported"
@@ -14,11 +15,13 @@ if [ -n "$VSCODE_TAG" ]; then
     echo "VSCODE_TAG: $VSCODE_TAG is not a valid tag"
     exit 1
   fi
+  VSCODE_COMMIT=$(echo "$response" | jq -r '.commit')
 fi
 
 if [ -z "$VSCODE_TAG" ]; then
   response=$(curl -s "https://vscode.luxass.dev/releases/latest")
   VSCODE_TAG=$(echo "$response" | jq -r '.tag')
+  VSCODE_COMMIT=$(echo "$response" | jq -r '.commit')
 fi
 
 if [[ "${OSTYPE}" == "darwin"* ]]; then
