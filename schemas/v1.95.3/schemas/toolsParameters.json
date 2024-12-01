@@ -1,0 +1,265 @@
+{
+  "definitions": {
+    "schemaArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#"
+      }
+    },
+    "nonNegativeInteger": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nonNegativeIntegerDefault0": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "default": 0
+        }
+      ]
+    },
+    "simpleTypes": {
+      "enum": [
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string"
+      ]
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    }
+  },
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "$id": {
+      "$ref": "#/$defs/_1"
+    },
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$ref": {
+      "$ref": "#/$defs/_1"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "readOnly": {
+      "$ref": "#/$defs/_2"
+    },
+    "writeOnly": {
+      "$ref": "#/$defs/_2"
+    },
+    "multipleOf": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "maximum": {
+      "type": "number"
+    },
+    "exclusiveMaximum": {
+      "type": "number"
+    },
+    "minimum": {
+      "type": "number"
+    },
+    "exclusiveMinimum": {
+      "type": "number"
+    },
+    "maxLength": {
+      "$ref": "#/$defs/_0"
+    },
+    "minLength": {
+      "$ref": "#/$defs/_3"
+    },
+    "pattern": {
+      "type": "string",
+      "format": "regex"
+    },
+    "additionalItems": {
+      "$ref": "#"
+    },
+    "items": {
+      "anyOf": [
+        {
+          "$ref": "#"
+        },
+        {
+          "$ref": "#/$defs/_4"
+        }
+      ],
+      "default": true
+    },
+    "maxItems": {
+      "$ref": "#/$defs/_0"
+    },
+    "minItems": {
+      "$ref": "#/$defs/_3"
+    },
+    "uniqueItems": {
+      "$ref": "#/$defs/_2"
+    },
+    "contains": {
+      "$ref": "#"
+    },
+    "maxProperties": {
+      "$ref": "#/$defs/_0"
+    },
+    "minProperties": {
+      "$ref": "#/$defs/_3"
+    },
+    "required": {
+      "$ref": "#/$defs/_5"
+    },
+    "additionalProperties": {
+      "$ref": "#"
+    },
+    "definitions": {
+      "$ref": "#/$defs/_6"
+    },
+    "properties": {
+      "$ref": "#/$defs/_6"
+    },
+    "patternProperties": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#"
+      },
+      "propertyNames": {
+        "format": "regex"
+      },
+      "default": {}
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#"
+          },
+          {
+            "$ref": "#/$defs/_5"
+          }
+        ]
+      }
+    },
+    "propertyNames": {
+      "$ref": "#"
+    },
+    "enum": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/_7"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/_7"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      ]
+    },
+    "format": {
+      "type": "string"
+    },
+    "contentMediaType": {
+      "type": "string"
+    },
+    "contentEncoding": {
+      "type": "string"
+    },
+    "if": {
+      "$ref": "#"
+    },
+    "then": {
+      "$ref": "#"
+    },
+    "else": {
+      "$ref": "#"
+    },
+    "allOf": {
+      "$ref": "#/$defs/_4"
+    },
+    "anyOf": {
+      "$ref": "#/$defs/_4"
+    },
+    "oneOf": {
+      "$ref": "#/$defs/_4"
+    },
+    "not": {
+      "$ref": "#"
+    }
+  },
+  "defaultSnippets": [
+    {
+      "body": {
+        "type": "object",
+        "properties": {
+          "${1:paramName}": {
+            "type": "string",
+            "description": "${2:description}"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "_0": {
+      "$ref": "#/definitions/nonNegativeInteger"
+    },
+    "_1": {
+      "type": "string",
+      "format": "uri-reference"
+    },
+    "_2": {
+      "type": "boolean",
+      "default": false
+    },
+    "_3": {
+      "$ref": "#/definitions/nonNegativeIntegerDefault0"
+    },
+    "_4": {
+      "$ref": "#/definitions/schemaArray"
+    },
+    "_5": {
+      "$ref": "#/definitions/stringArray"
+    },
+    "_6": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#"
+      },
+      "default": {}
+    },
+    "_7": {
+      "$ref": "#/definitions/simpleTypes"
+    }
+  }
+}
