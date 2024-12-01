@@ -1,7 +1,7 @@
 [
   "vscode://schemas/argv",
   "vscode://schemas/color-theme",
-  "vscode://schemas/custom/",
+
   "vscode://schemas/extensions",
   "vscode://schemas/global-snippets",
   "vscode://schemas/icon-theme",
